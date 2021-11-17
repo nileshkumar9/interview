@@ -32,8 +32,8 @@ import java.util.ArrayList;
  * */
 public class FindPermutation {
     public static void main(String[] args){
-        String A = "ID";
-        int n = 3;
+        String A = "DIDD";
+        int n = 5;
 
         ArrayList<Integer> result = findPerm(A, n);
         System.out.println( result);
