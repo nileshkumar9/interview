@@ -14,7 +14,7 @@ package com.interview.linkedList;
  * Previous.next is removing all the duplicate values.
  * We are shifting previous pointer so as that it will remove all duplicate nodes.
  * https://www.interviewbit.com/problems/remove-duplicates-from-sorted-list-ii/
- * 
+ *
  */
 public class RemoveDuplicatesInSortedLinkedList {
 
