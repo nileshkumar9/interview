@@ -8,6 +8,7 @@ import java.util.ArrayList;
  *
  * https://www.youtube.com/watch?v=pnx5JA9LNM4&list=PL-Jc9J83PIiFJRioti3ZV7QabwoJK6eKe&index=9
  *
+ * one set will have 0 to RMSB or 1 to RMSB
  */
 public class TwoUniqueRestTwiceXOR {
     public int twoUniqueRestTwiceXOR(ArrayList<Integer> lists) {
