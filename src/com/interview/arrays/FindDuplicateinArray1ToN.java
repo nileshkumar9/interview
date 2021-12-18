@@ -1,5 +1,7 @@
 package com.interview.arrays;
 
+import java.util.ArrayList;
+
 /**
  * https://www.interviewbit.com/problems/find-duplicate-in-array/
  * Problem Description
@@ -24,4 +26,24 @@ package com.interview.arrays;
  *
  */
 public class FindDuplicateinArray1ToN {
+
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int repeatedNumber(final int[] A) {
+        // Traverse and mark the value at given index negative.
+        // if negative val is encountered that means its duplicating
+
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int i =0 ; i< A.length; i++){
+            int index =Math.abs(A[i]) -1;
+            int val =  A[index];
+
+            if (val>0){ // if the index of given value is not marked  it means its new one
+                A[index] = A[index] * -1;
+            } else { // if the index of given value is marked already that means its a duplicate
+                result.add(Math.abs(A[i]));
+            }
+        }
+        return result.get(0);
+    }
 }
