@@ -52,7 +52,7 @@ import java.util.Stack;
  * https://www.youtube.com/watch?v=BlNXOtll7jo&list=PL-Jc9J83PIiEyUGT3S8zPdTMYojwZPLUM&index=22
  *
  */
-public class EvaludatePostFixExpression {
+public class EvaluatePostFixExpression {
     static public int evalRPN(String[] A) {
         int value = 0;
         Stack<String> valueStack = new Stack<>();
