@@ -1,5 +1,7 @@
 package com.interview.linkedList;
 
+import java.util.LinkedList;
+
 /**
  * @author  Nilesh Kumar
  *
@@ -113,6 +115,7 @@ public class KthNodeFromMiddle {
             middle++;
 
         }
+
         // if difference of middle and kth element is less return -1
         if(middle-B < 1){
             return -1;
