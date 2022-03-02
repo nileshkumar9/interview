@@ -196,6 +196,90 @@ public class ContructBinaryTreeFromEulerArray {
         int diameter = diameterOfBinaryTree(rootNode);
         System.out.println( "===>>>  Diameter of binary tree "+ diameter);
 
+        // 21 ) Tilt of a Binary Tree : Travel and change strategy
+        int tiltOfBinaryTree=0;
+        tiltOfBinaryTree = tiltOfBinaryTree(rootNode, tiltOfBinaryTree);
+
+        System.out.println( "===>>>  Overall tilt of binary tree "+ tiltOfBinaryTree);
+
+        // 22) Is a Tree BinarySearchTree
+        // USe travel and change strategy
+        MyBSTPair returnValueBST = isTreeBinarySearchTree(rootNode);
+        System.out.println( "===>>>  IS Biniary tree BST   "+ returnValueBST.isBST);
+
+
+
+
+
+
+    }
+
+    static class MyBSTPair{
+        boolean isBST;
+        int max;
+        int min;
+
+        public MyBSTPair( ) {
+
+        }
+
+        public MyBSTPair(boolean isBST, int min, int max) {
+            this.isBST = isBST;
+            this.max = max;
+            this.min = min;
+        }
+    }
+    /**
+     * A tree is a binary search tree when a node is greater then all elements on its left and is
+     * greater than all the elements on its right and this is recursively true for all of its node.
+     * Logic :
+     *    We will have a BSTPair Class that will contain boolean isBST, node min and node max
+     *    For every node, we will first check if the node itself satisfying the BST property
+     *    and then check if the node is greater than max of left side and node is less than min on right
+     * @param node
+     */
+    private static MyBSTPair isTreeBinarySearchTree(Node node) {
+        if(node == null){
+            return new MyBSTPair(true, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        }
+
+        MyBSTPair leftSide = isTreeBinarySearchTree(node.left);
+        MyBSTPair rightSide = isTreeBinarySearchTree(node.right);
+
+        MyBSTPair nodeBSTPair = new MyBSTPair();
+        // A node needs to get true as a bst property from left and right and also it should
+        // be < min on right and >= max on left
+        nodeBSTPair.isBST = leftSide.isBST && rightSide.isBST &&
+            node.data <= leftSide.max && node.data > rightSide.min;
+        nodeBSTPair.min = Math.min(node.data,Math.min(leftSide.min, rightSide.min)) ;
+        nodeBSTPair.max = Math.max(node.data, Math.max(rightSide.max, leftSide.max));
+        return nodeBSTPair;
+    }
+
+    /**
+     * https://www.youtube.com/watch?v=gK95sG7Dm-w&list=PL-Jc9J83PIiHYxUk8dSu2_G7MR1PaGXN4&index=47
+     * Tilt of a node is leftValue-rightValue
+     * Tilt of a Tree is sum of all the tilt of Nodes.
+     * Logic :
+     *      Calculated local tilt of each node and add it to global variable to get the overall tree tild.
+     *      2) Return sum of leftSide and RightSide, because this will be used by parent to caculcate its onw tild
+     *
+     */
+    private static int tiltOfBinaryTree(Node node, int tiltOfBinaryTree) {
+
+        if(node == null){
+            return 0;
+        }
+        int leftSum = tiltOfBinaryTree(node.left, tiltOfBinaryTree);
+        int rightSum = tiltOfBinaryTree(node.right, tiltOfBinaryTree);
+        // Tilt of each node is left value - right value
+        int localTilt = Math.abs(leftSum - rightSum);
+        // Tilt of all tree is sum of all tilts
+        tiltOfBinaryTree += localTilt;
+
+        // We are returning all sum which will be used by parent to calculate its own tilt
+        return leftSum+rightSum+ node.data;
+
     }
 
     /**
