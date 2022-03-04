@@ -56,8 +56,6 @@ public class RotateMatrixBy90Degree {
 
         // transpose the matrix
         transpose(array);
-
-
         // reverse each rows to get 90 degree views
         for(int i =0 ; i < array.length; i++){
             int li = 0; // reversing each rows here.
