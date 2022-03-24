@@ -106,8 +106,17 @@ public class ContructBinaryTreeFromEulerArray {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {50,25,12,null,null, 37,30,null,null,null, 75,62,null,70,null,null,87,null,null};
+        //Integer[] arr = {50,25,12,null,null, 37,30,null,null,null, 75,62,null,70,null,null,87,null,null};
+       // Integer[] arr = {50,25,12,null,null, 37,30,null,null,40,null,null, 75,62, 60, null, null,70,null,null,87,null,null}; // bst
 
+        Integer[] arr = {50,25,12,null,null, 37,30,null,null,51,null,null, 75,62, 60, null, null,77,null,null,87,null,null};
+        /**
+         *                      50
+         *           25                     75
+         *    12          37        62            87
+         *          30      51   60     77
+         *
+         */
         //1) Construct a Binary tree from euler input
         Node rootNode = constructBinaryTree(arr);
 
@@ -207,17 +216,97 @@ public class ContructBinaryTreeFromEulerArray {
         MyBSTPair returnValueBST = isTreeBinarySearchTree(rootNode);
         System.out.println( "===>>>  IS Biniary tree BST   "+ returnValueBST.isBST);
 
+        // 23 ) is it balanced tree
+        // its is called balanced if difference of left height and right height <=1
+        // using travel and change strategy
+        isBalancedTree(rootNode);
+        System.out.println("===>>>  IS tree balanced : " + isBal);
+
+        // 24 ) is it balanced tree
+        // its is called balanced if difference of left height and right height <=1
+        // usingPair technique
+        MyIsBalancedPair resultIsBalancedTree = isBalancedTreeUsingPair(rootNode);
+        System.out.println("===>>>  IS tree balanced : " + resultIsBalancedTree.isBalanced);
 
 
+        // 25 ) Find largestBST in given Binary tree
+        // print the node or largest bst and its size.
+        MyBSTPair largestBST = isTreeBinarySearchTree(rootNode);
+        System.out.println("===>>>  Largest BST's root is : " + largestBST.root.data + " and size of Largest BST is : " + largestBST.size );
 
+    }
 
+    static class MyIsBalancedPair{
+       // Pair class will have isBal value and height
+       // height is required to store as we will have to pass it to parent
+       // to calculate its own height and gap
+       int height;
+       boolean isBalanced;
+       public MyIsBalancedPair(){
 
+       }
+
+        public MyIsBalancedPair(int height, boolean isBalanced) {
+            this.height = height;
+
+            this.isBalanced = isBalanced;
+        }
+    }
+    private static MyIsBalancedPair isBalancedTreeUsingPair(Node node) {
+        if(node == null){
+            return new MyIsBalancedPair(0,true);
+        }
+
+        MyIsBalancedPair lp = isBalancedTreeUsingPair(node.left);
+        MyIsBalancedPair rp = isBalancedTreeUsingPair(node.right);
+
+        // a node is balanced if its gap is less than 1 and
+        // received left as balanced and right a balanced, which means all sub node child
+        // is balanced here.
+        MyIsBalancedPair thisNode = new MyIsBalancedPair();
+        thisNode.height = Math.max(lp.height , rp.height) +1;
+        thisNode.isBalanced = (Math.abs(lp.height - rp.height) <=1) &&
+            (lp.isBalanced) && (rp.isBalanced);
+        return thisNode;
+
+    }
+
+    /**
+     * Logic : https://www.youtube.com/watch?v=lUDgp2D6sf8&list=PL-Jc9J83PIiHYxUk8dSu2_G7MR1PaGXN4&index=51
+     * Calculate left height and right height and then find the gap
+     * height is max( of left , right )+1
+     * if gap is more than 1 then change the boolean isBal value
+     * @param node
+     */
+    static boolean isBal = true;
+    private static int isBalancedTree(Node node) {
+
+        if(node ==null){
+            return 0;
+        }
+        // we will get the height from left side and right side
+        int lh = isBalancedTree(node.left);
+        int rh = isBalancedTree(node.right);
+
+        int nodesHeight = Math.max(lh, rh) +1;
+        // we return here the height of the node
+        // but bring change to the isBal value // travel and change strategy
+        int gap = Math.abs(lh-rh);
+        if(gap>1){
+            // this means its not a balanced tree
+            isBal = false;
+        }
+
+        return nodesHeight;
     }
 
     static class MyBSTPair{
         boolean isBST;
         int max;
         int min;
+        // Adding root and size attribute which will be used to calculate largest BST in a tree
+        int size ; // size of the largest BST in whole tree
+        Node root ; // node that is the root of largest BST in whole Tree
 
         public MyBSTPair( ) {
 
@@ -237,10 +326,28 @@ public class ContructBinaryTreeFromEulerArray {
      *    For every node, we will first check if the node itself satisfying the BST property
      *    and then check if the node is greater than max of left side and node is less than min on right
      * @param node
+     *
+     * Extenstion for LargestBST :
+     *  Logic : In additon to attributes of BST , we will capture two extra attribute at each level
+     *        root of Largest BST and size of Largest BST
+     *   Cases :
+     *      1)Given node if is a BST then, largestBST rood will be update to this node and
+     *          size will be left.size+right.size+1(itself)
+     *      2) if current node is not BST
+     *          i) Since left is containing the attribute root that holds the lastBST in its child
+     *              and size attribute holds largestBST on left size. Similarly for right side
+     *          ii) in order to set lagestBST for current node, compare left's attribute size and
+     *              right attributes size and then which ever is greater sets root and size of current
+     *              node to it.
+     *   Hence enhancing exsting isBST logic with these modifications
      */
     private static MyBSTPair isTreeBinarySearchTree(Node node) {
         if(node == null){
-            return new MyBSTPair(true, Integer.MAX_VALUE, Integer.MIN_VALUE);
+            MyBSTPair bstPair = new MyBSTPair(true, Integer.MAX_VALUE, Integer.MIN_VALUE);
+            // Addition to calculate LargestBST
+            bstPair.root = null;
+            bstPair.size = 0;
+            return bstPair;
         }
 
         MyBSTPair leftSide = isTreeBinarySearchTree(node.left);
@@ -250,9 +357,27 @@ public class ContructBinaryTreeFromEulerArray {
         // A node needs to get true as a bst property from left and right and also it should
         // be < min on right and >= max on left
         nodeBSTPair.isBST = leftSide.isBST && rightSide.isBST &&
-            node.data <= leftSide.max && node.data > rightSide.min;
+            (node.data >= leftSide.max && node.data <= rightSide.min);
+        // min including left min, right min and node itself
         nodeBSTPair.min = Math.min(node.data,Math.min(leftSide.min, rightSide.min)) ;
+        // Max including left max, right max and node itself
         nodeBSTPair.max = Math.max(node.data, Math.max(rightSide.max, leftSide.max));
+
+        // Addition to calculate largestBST
+        if(nodeBSTPair.isBST){
+            nodeBSTPair.root = node;
+            nodeBSTPair.size = leftSide.size +rightSide.size +1;
+
+        } else if(leftSide.size > rightSide.size){
+            // largest bst is on left side so capture root and size value in this node's pair
+            nodeBSTPair.root = leftSide.root;
+            nodeBSTPair.size = leftSide.size;
+        } else {
+            // largest bst is on right side so capture root and size value in this node's pair
+            nodeBSTPair.root = rightSide.root;
+            nodeBSTPair.size = rightSide.size;
+        }
+
         return nodeBSTPair;
     }
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class QuestionsOnJava {
     /**
+     * efi
      * Write a program to find the min and max value for the values from this array.
      *
      * [100, 24, 190, 299, 282, 115, 204, 221] Min... by Sushant Panda
@@ -28,6 +29,8 @@ public class QuestionsOnJava {
      */
 
     /**
+     * Find Area of rectangle where area xy co ordinates are given, but they might not be
+     * cyclic, which means, x1 y1 and x2 y2 might be diagonally opposite coordinates.
      * [x1, y1, x2, y2, x3, y3, x4, y4]
      *
      *

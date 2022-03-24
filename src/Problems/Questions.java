@@ -3,6 +3,9 @@ package Problems;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+/**
+ * Oracles
+ */
 public class Questions {
     public static void main(String[] args) {
 
