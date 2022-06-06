@@ -55,6 +55,7 @@ public class QuestionsOnJava {
      */
 
     public static void main(String[] args) {
+
         int[] inputArray = new int[]{100, 24, 190, 299, 282, 115, 204, 221};
 
         minMaxOfAnArray(inputArray );
