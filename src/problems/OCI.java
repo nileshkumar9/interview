@@ -1,4 +1,4 @@
-package Problems;
+package problems;
 
 import java.util.List;
 
@@ -25,11 +25,7 @@ import java.util.List;
  s(n) = unchanged.
 
  **/
-import java.io.*;
-    import java.util.*;
-    import java.text.*;
-    import java.math.*;
-    import java.util.regex.*;
+import java.util.*;
 
 public class OCI {
 

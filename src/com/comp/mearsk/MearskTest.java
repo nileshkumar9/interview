@@ -1,6 +1,4 @@
-package Problems;
-
-import java.util.Map;
+package com.comp.mearsk;
 
 
 public class MearskTest {

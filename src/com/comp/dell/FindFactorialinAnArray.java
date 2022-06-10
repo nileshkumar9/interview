@@ -1,9 +1,7 @@
-package com.dell;
+package com.comp.dell;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class FindFactorialinAnArray {
 

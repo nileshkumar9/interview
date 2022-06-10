@@ -1,4 +1,4 @@
-package com.fireeyeinterview;
+package com.comp.fireeyeinterview;
 
 public class DeleteKthNodeofLL {
 

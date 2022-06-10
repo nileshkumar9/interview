@@ -1,4 +1,4 @@
-package com.samsung;
+package com.comp.samsung;
 
 public class FindDuplicateArrayElement {
     public static void main(String[] args) {

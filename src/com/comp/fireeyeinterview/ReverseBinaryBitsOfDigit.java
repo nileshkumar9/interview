@@ -1,6 +1,4 @@
-package com.fireeyeinterview;
-
-import java.util.logging.Logger;
+package com.comp.fireeyeinterview;
 
 // reverse the given digits binary bits
 public class ReverseBinaryBitsOfDigit {

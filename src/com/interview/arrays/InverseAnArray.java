@@ -12,6 +12,7 @@ import java.io.*;
  * For definition and constraints check this link
  * https://www.pepcoding.com/resources/online-java-foundation/getting-started/inverse-of-a-number/ojquestion
  * The only difference is the range of values is from 0 to n - 1, instead of 1 to n.
+ * Inverting the positions of array index to array value.
  *
  */
 public class InverseAnArray{
@@ -19,7 +20,7 @@ public class InverseAnArray{
         StringBuilder sb = new StringBuilder();
 
         for(int val: a){
-            sb.append(val + "\n");
+            sb.append(val + " -> ");
         }
         System.out.println(sb);
     }
