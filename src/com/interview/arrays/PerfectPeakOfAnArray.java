@@ -7,8 +7,8 @@ package com.interview.arrays;
  *
  * Given an integer array A of size N.
  *
- * You need to check that whether there exist a element which is strictly greater than all the elements on left of it
- * and strictly smaller than all the elements on right of it.
+ * You need to check that whether there exist a element which is strictly greater than all
+ * the elements on left of it and strictly smaller than all the elements on right of it.
  *
  * If it exists return 1 else return 0.
  *
@@ -44,8 +44,8 @@ package com.interview.arrays;
  *  A = [5, 1, 4, 4]
  *
  *  Logic :
- *  1) Create two arrays mx and n each of sixe n.
- *  mx[1] stores the greates element within the range of a[0] to a[i];
+ *  1) Create two arrays mx and mn each of sixe n.
+ *  mx[i] stores the greates element within the range of a[0] to a[i];
  *  mn[i] stores the smallest element within the range of a[n-1] to a[i]
  *  To find if any such element exists or not, loop from index 1 to n-2 as last element we don't hv to consider.
  *  if for any index i; a[i]> mx[i] and mn[i] < a[i] then this is the required lment (even for repeating cases.)
@@ -77,7 +77,8 @@ public class PerfectPeakOfAnArray {
         }
 
         for(int i=1 ; i< n-1; i++){
-            // because if it is peak element it would be greater than max of start till its index and minimum of last index to its index.
+            // because if it is peak element it would be greater than max of start till its index
+            // and minimum of last index to its index.
             if ((A[i] > mx[i-1]) && (A[i] < mn[i+1])){
                 found =1;
                 //return A[i];

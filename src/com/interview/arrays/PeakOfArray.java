@@ -6,7 +6,7 @@ package com.interview.arrays;
  * A peak element is an element that is greater than its neighbors.
  * There might be multiple peak elements in an array, and the solution should report any peak element.
  *
- * We will use binar search approach where we find in left and right sub array. o(logn)
+ * We will use binary search approach where we find in left and right sub array. o(logn)
  */
 public class PeakOfArray {
     public static int anyPeakInAnArray(int[] A) {

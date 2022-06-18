@@ -15,14 +15,17 @@ import java.util.ArrayList;
  *     (x+1, y-1),
  *     (x+1, y)  ,
  *     (x+1, y+1)
- * You are given a sequence of points and the order in which you need to cover the points.. Give the minimum number of steps in which you can achieve it. You start from the first point.
+ * You are given a sequence of points and the order in which you need to cover the points..
+ * Give the minimum number of steps in which you can achieve it. You start from the first point.
  *
- * NOTE: This question is intentionally left slightly vague. Clarify the question by trying out a few cases in the “See Expected Output” section.
+ * NOTE: This question is intentionally left slightly vague.
+ * Clarify the question by trying out a few cases in the “See Expected Output” section.
  *
  *
  *
  * Input Format
- * Given two integer arrays A and B, where A[i] is x coordinate and B[i] is y coordinate of ith point respectively.
+ * Given two integer arrays A and B, where A[i] is x coordinate and
+ *  B[i] is y coordinate of ith point respectively.
  *
  *
  *

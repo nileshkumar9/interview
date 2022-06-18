@@ -8,7 +8,8 @@ import java.util.Collections;
  * https://www.interviewbit.com/problems/noble-integer/
  * Problem Description
  *
- * Given an integer array A, find if an integer p exists in the array such that the number of integers greater than p in the array equals to p.
+ * Given an integer array A, find if an integer p exists in the array such
+ * that the number of integers greater than p in the array equals to p.
  *
  *
  *
@@ -59,11 +60,11 @@ public class NobelInteger {
         int size = A.size();
 
         // Base check when all element are negative and last element is zero
+        // then after sorthing the last value will be zero in that case we will return true
         if (A.get(size-1)==0) return 1;
 
         // IF there exists a scneario in which for given index
         // We have exactly same number of element after this index without duplicate values
-
         for (int i=0; i< A.size()-1  ; i++){
 
             if (A.get(i) == (size - (i +1)) // number of element after this index is same as at current value

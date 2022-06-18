@@ -20,6 +20,7 @@ public class PascalTriangle {
                 }
 
             }
+            System.out.println(row);
             result.add(row);
 
         }

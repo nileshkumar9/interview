@@ -121,7 +121,7 @@ public class KthNodeFromMiddle {
             return -1;
         }
 
-        // Loop through the linked list till desired postion and print the element.
+        // Loop through the linked list till desired position and print the element.
         for (int i=1; i< (middle-B) ; i++){
             result=result.next;
         }

@@ -17,10 +17,5 @@ public class PrintSubArrayofArray {
                 System.out.println();
             }
         }
-
-
     }
-
-
-
 }
