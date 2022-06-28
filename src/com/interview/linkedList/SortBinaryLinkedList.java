@@ -67,8 +67,9 @@ public class SortBinaryLinkedList {
     /**
      * Logic for below is we will iterated through the List. On each occurance of 0
      * we will link it to Zero Pointers and when we find 1 we will link it to onePointers.
-     * OneHead and ZeroHead will be set at first. At end of the loop we will have zeroPointers at one place
-     * and onePointers at one place. Then we will have zeroPointer next pointing to oneHead.
+     * OneHead and ZeroHead will be set at first. At end of the loop we will have
+     * zeroPointers at one place and onePointers at one place.
+     * Then we will have zeroPointer next pointing to oneHead.
      * and we will return zeroHead. There is another easy approach documented at end, read the comments.
      *
      * @param A

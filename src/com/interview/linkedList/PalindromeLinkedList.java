@@ -25,7 +25,7 @@ import java.util.Stack;
  */
 public class PalindromeLinkedList {
 
-    public int lPalin(ListNode A) {
+    public int isLinkedListPalindrome(ListNode A) {
         ListNode temHead = A;
         ListNode currentHead = A;
         int isPalindrome = 0;

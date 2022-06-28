@@ -23,6 +23,7 @@ public class Permutation {
     private static void permutation(String perm, String word) {
         System.out.println("Perm is : " + perm + " word : " + word);
         if (word.isEmpty()) {
+            System.out.println("Came in this");
             System.err.println(perm + word);
         } else {
             for (int i = 0; i < word.length(); i++) {

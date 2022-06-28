@@ -39,7 +39,8 @@ import java.util.LinkedList;
  *
  *
  * Output Format
- * Return an integer denoting the value of the Bth from the middle towards the head of the linked list A. If no such element exists, then return -1.
+ * Return an integer denoting the value of the Bth from the middle towards
+ * the head of the linked list A. If no such element exists, then return -1.
  *
  *
  *
