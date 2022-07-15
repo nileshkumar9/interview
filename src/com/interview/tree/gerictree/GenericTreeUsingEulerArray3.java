@@ -217,8 +217,8 @@ public class GenericTreeUsingEulerArray3 {
     private static int calculateDiameterReturnHeight(Node node) {
         /**
          * Calculate deepestChild and secondDeepest child of each element.
-         * Find if the diameter is dreater than previous diameter replace it
-         * We will calcualte the height of the tree and will deep updating the diameter of the tree.
+         * Find if the diameter is greater than previous diameter replace it
+         * We will calculate the height of the tree and will keep updating the diameter of the tree.
          *
          */
         int deepestHeight =-1; // this wil be for height

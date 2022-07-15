@@ -55,8 +55,8 @@ public class KnapsackProblemUnbounded {
                 // bag capacity
                 if (weight[j] <= i ){ // i denotes here bagCapacity at this index
                     // if we are putting say 5 then remaining bag capacity is 2
-                    // so we will get the vaue at dp index of remaining
-                    // and calculate the total by addin itself to it
+                    // so we will get the value at dp index of remaining
+                    // and calculate the total by adding itself to it
 
                     int remainingBagCapacity = i-weight[j] >= 0 ? i-weight[j] : 0; // ArrayIndexOOB
                     int remainingBagCapacityValue = dp[remainingBagCapacity];
